@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #container {
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #1a1918;
+            color: #fff;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        #table-container {
+        border: 2px solid #3498db; 
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        transition: transform 0.2s; 
+        transform: scale(1); 
+        background-color: aquamarine;
+        font-weight: bold; 
+        font-size: 25px; 
+       }
+
+        #table-container:hover {
+            border-color: #e74c3c; 
+            transform: scale(1.05); 
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Multiplication Table Generator</h1>
+    <div id="container">
+        <label for="number">Enter a number: </label>
+        <input type="number" id="number" min="1" max="100">
+        <button id="generate-button">Generate Table</button>
+<br>
+<br>
+
+        <div id="table-container">
+            <!-- The table will be generated here -->
+        </div>
+    </div>
+
+    <script>
+        alert("Hello, welcome to Multiplication Table Generator from Aditya Dhanwai");
+        const generateButton = document.getElementById("generate-button");
+        const tableContainer = document.getElementById("table-container");
+
+        generateButton.addEventListener("click", generateTable);
+
+        function generateTable() {
+            // Clear previous table
+            tableContainer.innerHTML = "";
+
+            const numberInput = document.getElementById("number");
+            const number = parseInt(numberInput.value);
+
+            if (isNaN(number) || number < 1 || number > 100) {
+                alert("Please enter a valid number between 1 and 100.");
+                return;
+            }
+
+            const ul = document.createElement("ul");
+
+            for (let i = 1; i <= 10; i++) {
+                const li = document.createElement("li");
+                li.textContent = `${number} x ${i} = ${number * i}`;
+                ul.appendChild(li);
+            }
+
+            tableContainer.appendChild(ul);
+        }
+    </script>
+</body>
+</html>
